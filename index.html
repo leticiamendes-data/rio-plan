@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roteiro Rio · 9 a 15 de Setembro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="hero">
+    <p class="hero__eyebrow">9 a 15 de setembro</p>
+    <h1 class="hero__title">A gente no Rio</h1>
+    <p class="hero__subtitle">Praia, Cristo, Pão de Açúcar e o Rock in Rio 1985 no meio do caminho.</p>
+  </header>
+
+  <main>
+
+    <section class="section" id="crew">
+      <h2 class="section__title">Quem vai</h2>
+      <p class="section__lead">Cada uma com seu skzoo — clique numa carta pra ver de perto (isso a gente conecta depois).</p>
+      <div class="crew-grid">
+        <div class="crew-card">
+          <div class="crew-card__avatar" aria-hidden="true"></div>
+          <p class="crew-card__name">Nome 1</p>
+        </div>
+        <div class="crew-card">
+          <div class="crew-card__avatar" aria-hidden="true"></div>
+          <p class="crew-card__name">Nome 2</p>
+        </div>
+        <div class="crew-card">
+          <div class="crew-card__avatar" aria-hidden="true"></div>
+          <p class="crew-card__name">Nome 3</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="mapa">
+      <h2 class="section__title">Onde vamos</h2>
+      <p class="section__lead">O mapa interativo entra aqui — próximo passo do projeto.</p>
+      <div class="map-placeholder">
+        <p>Mapa dos lugares (em construção)</p>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- ROTEIRO POR DIA                                        -->
+    <!-- Cada botão abaixo controla um "painel" de dia.         -->
+    <!-- O JavaScript que faz isso está em js/app.js            -->
+    <!-- ===================================================== -->
+    <section class="section" id="roteiro">
+      <h2 class="section__title">O roteiro, dia a dia</h2>
+      <p class="section__lead">Clique num dia pra ver o que está planejado. Edite os textos abaixo à vontade — são só um rascunho.</p>
+
+      <div class="day-tabs" role="tablist" aria-label="Dias da viagem">
+        <button class="day-tab is-active" data-day="dia1" role="tab" aria-selected="true">Ter 9/09</button>
+        <button class="day-tab" data-day="dia2" role="tab" aria-selected="false">Qua 10/09</button>
+        <button class="day-tab" data-day="dia3" role="tab" aria-selected="false">Qui 11/09</button>
+        <button class="day-tab" data-day="dia4" role="tab" aria-selected="false">Sex 12/09</button>
+        <button class="day-tab" data-day="dia5" role="tab" aria-selected="false">Sáb 13/09</button>
+        <button class="day-tab" data-day="dia6" role="tab" aria-selected="false">Dom 14/09</button>
+        <button class="day-tab" data-day="dia7" role="tab" aria-selected="false">Seg 15/09</button>
+      </div>
+
+      <div class="day-panel is-active" id="dia1" role="tabpanel">
+        <h3 class="day-panel__title">Dia 1 — Chegada</h3>
+        <ul class="day-panel__list">
+          <li>Check-in: Ibis Hotel Copacabana Posto 2</li>
+          <li>Editar: horário de chegada, primeiro passeio do dia</li>
+        </ul>
+      </div>
+
+      <div class="day-panel" id="dia2" role="tabpanel" hidden>
+        <h3 class="day-panel__title">Dia 2 — Trocando de hospedagem</h3>
+        <ul class="day-panel__list">
+          <li>Check-out do Ibis, check-in no Condomínio Capistrano de Abreu</li>
+          <li>Editar: Praia de Ipanema, restaurantes do dia</li>
+        </ul>
+      </div>
+
+      <div class="day-panel" id="dia3" role="tabpanel" hidden>
+        <h3 class="day-panel__title">Dia 3 — Rock in Rio 1985 🎸</h3>
+        <ul class="day-panel__list">
+          <li>Mequi perto da Praça General Osório</li>
+          <li>Pegar o Primeira Classe rumo à Cidade do Rock</li>
+          <li>Editar: horário de saída, horário do show</li>
+        </ul>
+      </div>
+
+      <div class="day-panel" id="dia4" role="tabpanel" hidden>
+        <h3 class="day-panel__title">Dia 4 — Cristo Redentor</h3>
+        <ul class="day-panel__list">
+          <li>Cristo Redentor — R$ 107</li>
+          <li>Editar: horário do passeio, como vamos subir</li>
+        </ul>
+      </div>
+
+      <div class="day-panel" id="dia5" role="tabpanel" hidden>
+        <h3 class="day-panel__title">Dia 5 — Urca &amp; Pão de Açúcar</h3>
+        <ul class="day-panel__list">
+          <li>Pão de Açúcar — R$ 155</li>
+          <li>Praia Vermelha e Urca</li>
+        </ul>
+      </div>
+
+      <div class="day-panel" id="dia6" role="tabpanel" hidden>
+        <h3 class="day-panel__title">Dia 6 — Barra da Tijuca</h3>
+        <ul class="day-panel__list">
+          <li>Pop-up Skzoo · Barra da Tijuca</li>
+          <li>Volta ao Ibis Copacabana Posto 2</li>
+        </ul>
+      </div>
+
+      <div class="day-panel" id="dia7" role="tabpanel" hidden>
+        <h3 class="day-panel__title">Dia 7 — Partida</h3>
+        <ul class="day-panel__list">
+          <li>Check-out do Ibis</li>
+          <li>Editar: horário do voo/ônibus de volta</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="mala">
+      <h2 class="section__title">A mala de 10kg</h2>
+      <p class="section__lead">O essencial — o checklist marcável entra aqui no próximo passo.</p>
+      <ul class="packing-list">
+        <li class="packing-list__item">Protetor solar</li>
+        <li class="packing-list__item">Roupa de praia</li>
+        <li class="packing-list__item">Carregador e cabo</li>
+        <li class="packing-list__item">Documento com foto</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Feito com carinho para essa viagem · rio-plan</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
