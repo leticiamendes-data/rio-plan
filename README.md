@@ -1,6 +1,6 @@
 # roteiro-rio
 
-Site com o roteiro de uma viagem ao Rio de Janeiro (julho de 2026), construído como projeto de portfólio de ciência de dados / engenharia — a ideia é aprender a integrar diferentes APIs e ferramentas num projeto real, do design ao código.
+Site com o roteiro de uma viagem ao Rio de Janeiro (Setembro de 2026), construído como projeto de portfólio de ciência de dados / engenharia — a ideia é aprender a integrar diferentes APIs e ferramentas num projeto real, do design ao código.
 
 🔗 **Site no ar:** _(link do GitHub Pages entra aqui depois do deploy)_
 
