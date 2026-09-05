@@ -1,0 +1,9 @@
+[
+  { "nome": "Cristo Redentor", "preco": 107, "lat": -22.9519, "lng": -43.2105 },
+  { "nome": "Pão de Açúcar", "preco": 155, "lat": -22.9486, "lng": -43.1568 },
+  { "nome": "Praia de Ipanema", "preco": null, "lat": -22.9868, "lng": -43.2075 },
+  { "nome": "Praia Vermelha", "preco": null, "lat": -22.9525, "lng": -43.1656 },
+  { "nome": "Urca", "preco": null, "lat": -22.9490, "lng": -43.1650 },
+  { "nome": "Praça General Osório", "preco": null, "lat": -22.9838, "lng": -43.2047 },
+  { "nome": "Pop-up Skzoo - Shopping Metropolitano Barra", "preco": null, "lat": -22.9711937, "lng": -43.3724174 }
+]

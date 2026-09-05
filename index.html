@@ -5,44 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Roteiro Rio · 9 a 15 de Setembro</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Leaflet: biblioteca do mapa (CSS) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
   <header class="hero">
-    <p class="hero__eyebrow">9 a 15 de setembro</p>
-    <h1 class="hero__title">A gente no Rio</h1>
-    <p class="hero__subtitle">Praia, Cristo, Pão de Açúcar e o Rock in Rio 1985 no meio do caminho.</p>
+    <p class="hero__eyebrow">9 — 15 de setembro</p>
+    <h1 class="hero__title">Rio 2026</h1>
+    <p class="hero__subtitle">Uma viagem para entrar na nossa história — praia, Cristo, Pão de Açúcar e o Rock in Rio 1985 no meio do caminho.</p>
+
+    <div class="countdown" id="countdown">
+      <div class="countdown__unit">
+        <span class="countdown__number" id="cd-dias">00</span>
+        <span class="countdown__label">dias</span>
+      </div>
+      <div class="countdown__unit">
+        <span class="countdown__number" id="cd-horas">00</span>
+        <span class="countdown__label">horas</span>
+      </div>
+      <div class="countdown__unit">
+        <span class="countdown__number" id="cd-min">00</span>
+        <span class="countdown__label">min</span>
+      </div>
+      <div class="countdown__unit">
+        <span class="countdown__number" id="cd-seg">00</span>
+        <span class="countdown__label">seg</span>
+      </div>
+    </div>
   </header>
 
   <main>
 
     <section class="section" id="crew">
       <h2 class="section__title">Quem vai</h2>
-      <p class="section__lead">Cada uma com seu skzoo — clique numa carta pra ver de perto (isso a gente conecta depois).</p>
+      <p class="section__lead">Cada uma com seu crachá — clique numa carta pra ver de perto (isso a gente conecta depois).</p>
       <div class="crew-grid">
         <div class="crew-card">
-          <div class="crew-card__avatar" aria-hidden="true"></div>
+          <svg class="crew-card__badge" style="--badge-color:#3B5BDB" viewBox="0 0 80 100"><rect x="8" y="6" width="64" height="88" fill="none" stroke="var(--badge-color)" stroke-width="2.5"/><rect x="16" y="16" width="48" height="26" rx="5" fill="var(--badge-color)" fill-opacity="0.12" stroke="var(--badge-color)" stroke-width="1.5"/><text x="40" y="33" text-anchor="middle" font-size="9" fill="var(--badge-color)" font-family="monospace">^•ﻌ•^</text><circle cx="40" cy="68" r="14" fill="none" stroke="var(--badge-color)" stroke-width="2"/><circle cx="40" cy="68" r="4" fill="var(--badge-color)"/></svg>
           <p class="crew-card__name">Nome 1</p>
         </div>
         <div class="crew-card">
-          <div class="crew-card__avatar" aria-hidden="true"></div>
+          <svg class="crew-card__badge" style="--badge-color:#7048E8" viewBox="0 0 80 100"><rect x="8" y="6" width="64" height="88" fill="none" stroke="var(--badge-color)" stroke-width="2.5"/><rect x="16" y="16" width="48" height="26" rx="5" fill="var(--badge-color)" fill-opacity="0.12" stroke="var(--badge-color)" stroke-width="1.5"/><text x="40" y="33" text-anchor="middle" font-size="9" fill="var(--badge-color)" font-family="monospace">^-ω-^</text><circle cx="40" cy="68" r="14" fill="none" stroke="var(--badge-color)" stroke-width="2"/><circle cx="40" cy="68" r="4" fill="var(--badge-color)"/></svg>
           <p class="crew-card__name">Nome 2</p>
         </div>
         <div class="crew-card">
-          <div class="crew-card__avatar" aria-hidden="true"></div>
+          <svg class="crew-card__badge" style="--badge-color:#1098AD" viewBox="0 0 80 100"><rect x="8" y="6" width="64" height="88" fill="none" stroke="var(--badge-color)" stroke-width="2.5"/><rect x="16" y="16" width="48" height="26" rx="5" fill="var(--badge-color)" fill-opacity="0.12" stroke="var(--badge-color)" stroke-width="1.5"/><text x="40" y="33" text-anchor="middle" font-size="9" fill="var(--badge-color)" font-family="monospace">^>ᴥ<^</text><circle cx="40" cy="68" r="14" fill="none" stroke="var(--badge-color)" stroke-width="2"/><circle cx="40" cy="68" r="4" fill="var(--badge-color)"/></svg>
           <p class="crew-card__name">Nome 3</p>
+        </div>
+        <div class="crew-card">
+          <svg class="crew-card__badge" style="--badge-color:#364FC7" viewBox="0 0 80 100"><rect x="8" y="6" width="64" height="88" fill="none" stroke="var(--badge-color)" stroke-width="2.5"/><rect x="16" y="16" width="48" height="26" rx="5" fill="var(--badge-color)" fill-opacity="0.12" stroke="var(--badge-color)" stroke-width="1.5"/><text x="40" y="33" text-anchor="middle" font-size="9" fill="var(--badge-color)" font-family="monospace">^◕‿◕^</text><circle cx="40" cy="68" r="14" fill="none" stroke="var(--badge-color)" stroke-width="2"/><circle cx="40" cy="68" r="4" fill="var(--badge-color)"/></svg>
+          <p class="crew-card__name">Nome 4</p>
+        </div>
+        <div class="crew-card">
+          <svg class="crew-card__badge" style="--badge-color:#099268" viewBox="0 0 80 100"><rect x="8" y="6" width="64" height="88" fill="none" stroke="var(--badge-color)" stroke-width="2.5"/><rect x="16" y="16" width="48" height="26" rx="5" fill="var(--badge-color)" fill-opacity="0.12" stroke="var(--badge-color)" stroke-width="1.5"/><text x="40" y="33" text-anchor="middle" font-size="9" fill="var(--badge-color)" font-family="monospace">^≧◡≦^</text><circle cx="40" cy="68" r="14" fill="none" stroke="var(--badge-color)" stroke-width="2"/><circle cx="40" cy="68" r="4" fill="var(--badge-color)"/></svg>
+          <p class="crew-card__name">Nome 5</p>
         </div>
       </div>
     </section>
 
     <section class="section" id="mapa">
       <h2 class="section__title">Onde vamos</h2>
-      <p class="section__lead">O mapa interativo entra aqui — próximo passo do projeto.</p>
-      <div class="map-placeholder">
-        <p>Mapa dos lugares (em construção)</p>
-      </div>
+      <p class="section__lead">Toque num marcador pra ver o nome do lugar.</p>
+      <div id="map"></div>
     </section>
 
     <!-- ===================================================== -->
@@ -67,21 +94,24 @@
       <div class="day-panel is-active" id="dia1" role="tabpanel">
         <h3 class="day-panel__title">Dia 1 — Chegada</h3>
         <ul class="day-panel__list">
-          <li>Check-in: Ibis Hotel Copacabana Posto 2</li>
-          <li>Editar: horário de chegada, primeiro passeio do dia</li>
+          <li>Guardar as malas no Ibis</li>
+          <li>Pop-up Skzoo · Barra da Tijuca</li>
+          <li> Check-in: Ibis Hotel</li>
+          <li> Andar pela Orla</li>
         </ul>
       </div>
 
       <div class="day-panel" id="dia2" role="tabpanel" hidden>
         <h3 class="day-panel__title">Dia 2 — Trocando de hospedagem</h3>
         <ul class="day-panel__list">
-          <li>Check-out do Ibis, check-in no Condomínio Capistrano de Abreu</li>
-          <li>Editar: Praia de Ipanema, restaurantes do dia</li>
+          <li>Check-out do Ibis</li>
+          <li> Passeio ao Cristo Redentor</li>
+          <li>Check-in no Airbnb</li>
         </ul>
       </div>
 
       <div class="day-panel" id="dia3" role="tabpanel" hidden>
-        <h3 class="day-panel__title">Dia 3 — Rock in Rio 1985 🎸</h3>
+        <h3 class="day-panel__title">Dia 3 — Rock in Rio SKZ 🎸</h3>
         <ul class="day-panel__list">
           <li>Mequi perto da Praça General Osório</li>
           <li>Pegar o Primeira Classe rumo à Cidade do Rock</li>
@@ -90,26 +120,27 @@
       </div>
 
       <div class="day-panel" id="dia4" role="tabpanel" hidden>
-        <h3 class="day-panel__title">Dia 4 — Cristo Redentor</h3>
+        <h3 class="day-panel__title">Dia 4 — Dia livre póp RIR</h3>
         <ul class="day-panel__list">
-          <li>Cristo Redentor — R$ 107</li>
-          <li>Editar: horário do passeio, como vamos subir</li>
+          <li>Café da manhã</li>
+          <li>Praia Ipanema</li>
         </ul>
       </div>
 
       <div class="day-panel" id="dia5" role="tabpanel" hidden>
-        <h3 class="day-panel__title">Dia 5 — Urca &amp; Pão de Açúcar</h3>
+        <h3 class="day-panel__title">Dia 5 — Pão de Açúcar</h3>
         <ul class="day-panel__list">
-          <li>Pão de Açúcar — R$ 155</li>
+          <li>Pão de Açúcar </li>
           <li>Praia Vermelha e Urca</li>
         </ul>
       </div>
 
       <div class="day-panel" id="dia6" role="tabpanel" hidden>
-        <h3 class="day-panel__title">Dia 6 — Barra da Tijuca</h3>
+        <h3 class="day-panel__title">Dia 6 — Praia da Urca</h3>
         <ul class="day-panel__list">
-          <li>Pop-up Skzoo · Barra da Tijuca</li>
-          <li>Volta ao Ibis Copacabana Posto 2</li>
+          <li>Praia Vermelha</li>
+          <li>Praia da Urca</li>
+          <li>Check in: Ibis Copacabana</li>
         </ul>
       </div>
 
@@ -117,20 +148,23 @@
         <h3 class="day-panel__title">Dia 7 — Partida</h3>
         <ul class="day-panel__list">
           <li>Check-out do Ibis</li>
-          <li>Editar: horário do voo/ônibus de volta</li>
+          <li>ir para o aeroporto</li>
         </ul>
       </div>
     </section>
 
     <section class="section" id="mala">
-      <h2 class="section__title">A mala de 10kg</h2>
-      <p class="section__lead">O essencial — o checklist marcável entra aqui no próximo passo.</p>
-      <ul class="packing-list">
-        <li class="packing-list__item">Protetor solar</li>
-        <li class="packing-list__item">Roupa de praia</li>
-        <li class="packing-list__item">Carregador e cabo</li>
-        <li class="packing-list__item">Documento com foto</li>
-      </ul>
+      <h2 class="section__title">Malas</h2>
+      <p class="section__lead">Toque num item pra marcar como separado.</p>
+
+      <div class="legend" id="legend"></div>
+
+      <div class="progress">
+        <div class="progress__bar"><div class="progress__fill" id="progress-fill"></div></div>
+        <p class="progress__label" id="progress-label">0 de 0 prontos</p>
+      </div>
+
+      <div id="packing-list"></div>
     </section>
 
   </main>
@@ -139,6 +173,8 @@
     <p>Feito com carinho para essa viagem · rio-plan</p>
   </footer>
 
+  <!-- Leaflet: biblioteca do mapa (JS) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

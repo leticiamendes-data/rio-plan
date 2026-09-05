@@ -1,0 +1,38 @@
+[
+  { "nome": "Biquíni / maiô", "categoria": "roupas" },
+  { "nome": "Shorts", "categoria": "roupas" },
+  { "nome": "Roupa de festival", "categoria": "roupas" },
+  { "nome": "Roupa íntima", "categoria": "roupas" },
+  { "nome": "Pijama", "categoria": "roupas" },
+
+  { "nome": "2 toalhas", "categoria": "praia" },
+  { "nome": "Canga", "categoria": "praia" },
+  { "nome": "Óculos de sol", "categoria": "praia" },
+  { "nome": "Chinelo", "categoria": "praia" },
+  { "nome": "Protetor solar", "categoria": "praia" },
+
+  { "nome": "Escova ou pente", "categoria": "cabelo" },
+  { "nome": "Elástico de cabelo", "categoria": "cabelo" },
+  { "nome": "Leave-in", "categoria": "cabelo" },
+
+  { "nome": "Hidratante facial", "categoria": "skincare" },
+  { "nome": "Protetor labial", "categoria": "skincare" },
+  { "nome": "Água micelar", "categoria": "skincare" },
+
+  { "nome": "Base", "categoria": "maquiagem" },
+  { "nome": "Batom", "categoria": "maquiagem" },
+  { "nome": "Máscara de cílios", "categoria": "maquiagem" },
+
+  { "nome": "Analgésico", "categoria": "remedios" },
+  { "nome": "Band-aid", "categoria": "remedios" },
+  { "nome": "Repelente", "categoria": "remedios" },
+
+  { "nome": "Carregador", "categoria": "eletronicos" },
+  { "nome": "Power bank", "categoria": "eletronicos" },
+  { "nome": "Fone de ouvido", "categoria": "eletronicos" },
+
+  { "nome": "Tênis confortável", "categoria": "rockinrio" },
+  { "nome": "Capa de chuva", "categoria": "rockinrio" },
+  { "nome": "Power bank extra", "categoria": "rockinrio" },
+  { "nome": "Ingresso (QR code salvo)", "categoria": "rockinrio" }
+]
