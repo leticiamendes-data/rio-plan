@@ -12,27 +12,33 @@
 </head>
 <body>
 
-  <header class="hero">
-    <p class="hero__eyebrow">9 — 15 de setembro</p>
-    <h1 class="hero__title">Rio 2026</h1>
-    <p class="hero__subtitle">Uma viagem para entrar na nossa história — praia, Cristo, Pão de Açúcar e o Rock in Rio 1985 no meio do caminho.</p>
+  <!-- Camada de partículas fixa, cobre a página inteira -->
+  <canvas id="particles-canvas"></canvas>
 
-    <div class="countdown" id="countdown">
-      <div class="countdown__unit">
-        <span class="countdown__number" id="cd-dias">00</span>
-        <span class="countdown__label">dias</span>
-      </div>
-      <div class="countdown__unit">
-        <span class="countdown__number" id="cd-horas">00</span>
-        <span class="countdown__label">horas</span>
-      </div>
-      <div class="countdown__unit">
-        <span class="countdown__number" id="cd-min">00</span>
-        <span class="countdown__label">min</span>
-      </div>
-      <div class="countdown__unit">
-        <span class="countdown__number" id="cd-seg">00</span>
-        <span class="countdown__label">seg</span>
+  <header class="hero">
+    <canvas id="hero-canvas" class="hero__canvas"></canvas>
+    <div class="hero__content">
+      <p class="hero__eyebrow">9 — 15 de setembro</p>
+      <h1 class="hero__title">Rio 2026</h1>
+      <p class="hero__subtitle">Uma viagem para entrar na nossa história — praia, Cristo, Pão de Açúcar e o Rock in Rio no meio do caminho.</p>
+
+      <div class="countdown" id="countdown">
+        <div class="countdown__unit">
+          <span class="countdown__number" id="cd-dias">00</span>
+          <span class="countdown__label">dias</span>
+        </div>
+        <div class="countdown__unit">
+          <span class="countdown__number" id="cd-horas">00</span>
+          <span class="countdown__label">horas</span>
+        </div>
+        <div class="countdown__unit">
+          <span class="countdown__number" id="cd-min">00</span>
+          <span class="countdown__label">min</span>
+        </div>
+        <div class="countdown__unit">
+          <span class="countdown__number" id="cd-seg">00</span>
+          <span class="countdown__label">seg</span>
+        </div>
       </div>
     </div>
   </header>
@@ -41,27 +47,73 @@
 
     <section class="section" id="crew">
       <h2 class="section__title">Quem vai</h2>
-      <p class="section__lead">Cada uma com seu crachá — clique numa carta pra ver de perto (isso a gente conecta depois).</p>
+      <p class="section__lead">Choose your favorite face!</p>
       <div class="crew-grid">
+        <!-- Cada crachá agora é clicável (classe crew-card__badge-wrap) e guarda a lista de carinhas em data-faces -->
         <div class="crew-card">
-          <svg class="crew-card__badge" style="--badge-color:#3B5BDB" viewBox="0 0 80 100"><rect x="8" y="6" width="64" height="88" fill="none" stroke="var(--badge-color)" stroke-width="2.5"/><rect x="16" y="16" width="48" height="26" rx="5" fill="var(--badge-color)" fill-opacity="0.12" stroke="var(--badge-color)" stroke-width="1.5"/><text x="40" y="33" text-anchor="middle" font-size="9" fill="var(--badge-color)" font-family="monospace">^•ﻌ•^</text><circle cx="40" cy="68" r="14" fill="none" stroke="var(--badge-color)" stroke-width="2"/><circle cx="40" cy="68" r="4" fill="var(--badge-color)"/></svg>
-          <p class="crew-card__name">Nome 1</p>
+          <div class="crew-card__badge-wrap" data-faces="^•ﻌ•^,^-ω-^,^>ᴥ<^,^◕‿◕^,(¬‿¬)">
+            <svg class="crew-card__badge" style="--badge-color:#3B5BDB" viewBox="0 0 80 100">
+              <rect class="badge-strap" x="30" y="0" width="20" height="10" />
+              <rect x="8" y="8" width="64" height="86" fill="none" stroke="var(--badge-color)" stroke-width="2.5"/>
+              <rect x="16" y="18" width="48" height="26" rx="5" fill="var(--badge-color)" fill-opacity="0.12" stroke="var(--badge-color)" stroke-width="1.5"/>
+              <text class="badge-face" x="40" y="35" text-anchor="middle" font-size="9" fill="var(--badge-color)" font-family="monospace">^•ﻌ•^</text>
+              <circle cx="40" cy="68" r="14" fill="none" stroke="var(--badge-color)" stroke-width="2"/>
+              <path d="M36 62 L36 74 L46 68 Z" fill="var(--badge-color)"/>
+            </svg>
+          </div>
+          <p class="crew-card__name">Fer</p>
         </div>
         <div class="crew-card">
-          <svg class="crew-card__badge" style="--badge-color:#7048E8" viewBox="0 0 80 100"><rect x="8" y="6" width="64" height="88" fill="none" stroke="var(--badge-color)" stroke-width="2.5"/><rect x="16" y="16" width="48" height="26" rx="5" fill="var(--badge-color)" fill-opacity="0.12" stroke="var(--badge-color)" stroke-width="1.5"/><text x="40" y="33" text-anchor="middle" font-size="9" fill="var(--badge-color)" font-family="monospace">^-ω-^</text><circle cx="40" cy="68" r="14" fill="none" stroke="var(--badge-color)" stroke-width="2"/><circle cx="40" cy="68" r="4" fill="var(--badge-color)"/></svg>
-          <p class="crew-card__name">Nome 2</p>
+          <div class="crew-card__badge-wrap" data-faces="^-ω-^,^◕‿◕^,^>ᴥ<^,^≧◡≦^,(¬‿¬)">
+            <svg class="crew-card__badge" style="--badge-color:#FF3B30" viewBox="0 0 80 100">
+              <rect class="badge-strap" x="30" y="0" width="20" height="10" />
+              <rect x="8" y="8" width="64" height="86" fill="none" stroke="var(--badge-color)" stroke-width="2.5"/>
+              <rect x="16" y="18" width="48" height="26" rx="5" fill="var(--badge-color)" fill-opacity="0.12" stroke="var(--badge-color)" stroke-width="1.5"/>
+              <text class="badge-face" x="40" y="35" text-anchor="middle" font-size="14" fill="var(--badge-color)" font-family="monospace">^-ω-^</text>
+              <circle cx="40" cy="68" r="14" fill="none" stroke="var(--badge-color)" stroke-width="2"/>
+              <path d="M36 62 L36 74 L46 68 Z" fill="var(--badge-color)"/>
+            </svg>
+          </div>
+          <p class="crew-card__name">Lelu</p>
         </div>
         <div class="crew-card">
-          <svg class="crew-card__badge" style="--badge-color:#1098AD" viewBox="0 0 80 100"><rect x="8" y="6" width="64" height="88" fill="none" stroke="var(--badge-color)" stroke-width="2.5"/><rect x="16" y="16" width="48" height="26" rx="5" fill="var(--badge-color)" fill-opacity="0.12" stroke="var(--badge-color)" stroke-width="1.5"/><text x="40" y="33" text-anchor="middle" font-size="9" fill="var(--badge-color)" font-family="monospace">^>ᴥ<^</text><circle cx="40" cy="68" r="14" fill="none" stroke="var(--badge-color)" stroke-width="2"/><circle cx="40" cy="68" r="4" fill="var(--badge-color)"/></svg>
-          <p class="crew-card__name">Nome 3</p>
+          <div class="crew-card__badge-wrap" data-faces="^>ᴥ<^,^•ﻌ•^,^≧◡≦^,^◕‿◕^,(¬‿¬)">
+            <svg class="crew-card__badge" style="--badge-color:#34D399" viewBox="0 0 80 100">
+              <rect class="badge-strap" x="30" y="0" width="20" height="10" />
+              <rect x="8" y="8" width="64" height="86" fill="none" stroke="var(--badge-color)" stroke-width="2.5"/>
+              <rect x="16" y="18" width="48" height="26" rx="5" fill="var(--badge-color)" fill-opacity="0.12" stroke="var(--badge-color)" stroke-width="1.5"/>
+              <text class="badge-face" x="40" y="35" text-anchor="middle" font-size="14" fill="var(--badge-color)" font-family="monospace">^>ᴥ<^</text>
+              <circle cx="40" cy="68" r="14" fill="none" stroke="var(--badge-color)" stroke-width="2"/>
+              <path d="M36 62 L36 74 L46 68 Z" fill="var(--badge-color)"/>
+            </svg>
+          </div>
+          <p class="crew-card__name">Vi</p>
         </div>
         <div class="crew-card">
-          <svg class="crew-card__badge" style="--badge-color:#364FC7" viewBox="0 0 80 100"><rect x="8" y="6" width="64" height="88" fill="none" stroke="var(--badge-color)" stroke-width="2.5"/><rect x="16" y="16" width="48" height="26" rx="5" fill="var(--badge-color)" fill-opacity="0.12" stroke="var(--badge-color)" stroke-width="1.5"/><text x="40" y="33" text-anchor="middle" font-size="9" fill="var(--badge-color)" font-family="monospace">^◕‿◕^</text><circle cx="40" cy="68" r="14" fill="none" stroke="var(--badge-color)" stroke-width="2"/><circle cx="40" cy="68" r="4" fill="var(--badge-color)"/></svg>
-          <p class="crew-card__name">Nome 4</p>
+          <div class="crew-card__badge-wrap" data-faces="^◕‿◕^,^-ω-^,^•ﻌ•^,^≧◡≦^,(¬‿¬)">
+            <svg class="crew-card__badge" style="--badge-color:#364FC7" viewBox="0 0 80 100">
+              <rect class="badge-strap" x="30" y="0" width="20" height="10" />
+              <rect x="8" y="8" width="64" height="86" fill="none" stroke="var(--badge-color)" stroke-width="2.5"/>
+              <rect x="16" y="18" width="48" height="26" rx="5" fill="var(--badge-color)" fill-opacity="0.12" stroke="var(--badge-color)" stroke-width="1.5"/>
+              <text class="badge-face" x="40" y="35" text-anchor="middle" font-size="9" fill="var(--badge-color)" font-family="monospace">^◕‿◕^</text>
+              <circle cx="40" cy="68" r="14" fill="none" stroke="var(--badge-color)" stroke-width="2"/>
+              <path d="M36 62 L36 74 L46 68 Z" fill="var(--badge-color)"/>
+            </svg>
+          </div>
+          <p class="crew-card__name">Lele</p>
         </div>
         <div class="crew-card">
-          <svg class="crew-card__badge" style="--badge-color:#099268" viewBox="0 0 80 100"><rect x="8" y="6" width="64" height="88" fill="none" stroke="var(--badge-color)" stroke-width="2.5"/><rect x="16" y="16" width="48" height="26" rx="5" fill="var(--badge-color)" fill-opacity="0.12" stroke="var(--badge-color)" stroke-width="1.5"/><text x="40" y="33" text-anchor="middle" font-size="9" fill="var(--badge-color)" font-family="monospace">^≧◡≦^</text><circle cx="40" cy="68" r="14" fill="none" stroke="var(--badge-color)" stroke-width="2"/><circle cx="40" cy="68" r="4" fill="var(--badge-color)"/></svg>
-          <p class="crew-card__name">Nome 5</p>
+          <div class="crew-card__badge-wrap" data-faces="^≧◡≦^,^>ᴥ<^,^-ω-^,^•ﻌ•^,(¬‿¬)">
+            <svg class="crew-card__badge" style="--badge-color:#099268" viewBox="0 0 80 100">
+              <rect class="badge-strap" x="30" y="0" width="20" height="10" />
+              <rect x="8" y="8" width="64" height="86" fill="none" stroke="var(--badge-color)" stroke-width="2.5"/>
+              <rect x="16" y="18" width="48" height="26" rx="5" fill="var(--badge-color)" fill-opacity="0.12" stroke="var(--badge-color)" stroke-width="1.5"/>
+              <text class="badge-face" x="40" y="35" text-anchor="middle" font-size="9" fill="var(--badge-color)" font-family="monospace">^≧◡≦^</text>
+              <circle cx="40" cy="68" r="14" fill="none" stroke="var(--badge-color)" stroke-width="2"/>
+              <path d="M36 62 L36 74 L46 68 Z" fill="var(--badge-color)"/>
+            </svg>
+          </div>
+          <p class="crew-card__name">Jenny</p>
         </div>
       </div>
     </section>
@@ -73,83 +125,155 @@
     </section>
 
     <!-- ===================================================== -->
-    <!-- ROTEIRO POR DIA                                        -->
-    <!-- Cada botão abaixo controla um "painel" de dia.         -->
-    <!-- O JavaScript que faz isso está em js/app.js            -->
+    <!-- ROTEIRO POR DIA — cada painel agora é um "boarding pass" -->
     <!-- ===================================================== -->
     <section class="section" id="roteiro">
       <h2 class="section__title">O roteiro, dia a dia</h2>
-      <p class="section__lead">Clique num dia pra ver o que está planejado. Edite os textos abaixo à vontade — são só um rascunho.</p>
+      <p class="section__lead">Clique num dia pra ver o que está planejado.</p>
 
       <div class="day-tabs" role="tablist" aria-label="Dias da viagem">
-        <button class="day-tab is-active" data-day="dia1" role="tab" aria-selected="true">Ter 9/09</button>
-        <button class="day-tab" data-day="dia2" role="tab" aria-selected="false">Qua 10/09</button>
-        <button class="day-tab" data-day="dia3" role="tab" aria-selected="false">Qui 11/09</button>
-        <button class="day-tab" data-day="dia4" role="tab" aria-selected="false">Sex 12/09</button>
-        <button class="day-tab" data-day="dia5" role="tab" aria-selected="false">Sáb 13/09</button>
-        <button class="day-tab" data-day="dia6" role="tab" aria-selected="false">Dom 14/09</button>
-        <button class="day-tab" data-day="dia7" role="tab" aria-selected="false">Seg 15/09</button>
+        <button class="day-tab is-active" data-day="dia1" role="tab" aria-selected="true">Qua 9/09</button>
+        <button class="day-tab" data-day="dia2" role="tab" aria-selected="false">Qui 10/09</button>
+        <button class="day-tab" data-day="dia3" role="tab" aria-selected="false">Sex 11/09</button>
+        <button class="day-tab" data-day="dia4" role="tab" aria-selected="false">Sáb 12/09</button>
+        <button class="day-tab" data-day="dia5" role="tab" aria-selected="false">Dom 13/09</button>
+        <button class="day-tab" data-day="dia6" role="tab" aria-selected="false">Seg 14/09</button>
+        <button class="day-tab" data-day="dia7" role="tab" aria-selected="false">Ter 15/09</button>
       </div>
 
       <div class="day-panel is-active" id="dia1" role="tabpanel">
-        <h3 class="day-panel__title">Dia 1 — Chegada</h3>
-        <ul class="day-panel__list">
-          <li>Guardar as malas no Ibis</li>
-          <li>Pop-up Skzoo · Barra da Tijuca</li>
-          <li> Check-in: Ibis Hotel</li>
-          <li> Andar pela Orla</li>
-        </ul>
+        <div class="day-panel__stub">
+          <span class="day-panel__num">01</span>
+          <span class="day-panel__weekday">QUA</span>
+        </div>
+        <div class="day-panel__main">
+          <h3 class="day-panel__title">Chegada</h3>
+          <ul class="day-panel__list">
+            <li>Guardar as malas no Ibis</li>
+            <li>Pop-up Skzoo · Barra da Tijuca</li>
+            <li>Check-in: Ibis Hotel</li>
+            <li>Andar pela Orla</li>
+          </ul>
+          <div class="day-panel__barcode"></div>
+        </div>
       </div>
 
       <div class="day-panel" id="dia2" role="tabpanel" hidden>
-        <h3 class="day-panel__title">Dia 2 — Trocando de hospedagem</h3>
-        <ul class="day-panel__list">
-          <li>Check-out do Ibis</li>
-          <li> Passeio ao Cristo Redentor</li>
-          <li>Check-in no Airbnb</li>
-        </ul>
+        <div class="day-panel__stub">
+          <span class="day-panel__num">02</span>
+          <span class="day-panel__weekday">QUI</span>
+        </div>
+        <div class="day-panel__main">
+          <h3 class="day-panel__title">Trocando de hospedagem</h3>
+          <ul class="day-panel__list">
+            <li>Check-out do Ibis</li>
+            <li>Passeio ao Cristo Redentor</li>
+            <li>Check-in no Airbnb</li>
+          </ul>
+          <div class="day-panel__barcode"></div>
+        </div>
       </div>
 
       <div class="day-panel" id="dia3" role="tabpanel" hidden>
-        <h3 class="day-panel__title">Dia 3 — Rock in Rio SKZ 🎸</h3>
-        <ul class="day-panel__list">
-          <li>Mequi perto da Praça General Osório</li>
-          <li>Pegar o Primeira Classe rumo à Cidade do Rock</li>
-          <li>Editar: horário de saída, horário do show</li>
-        </ul>
+        <div class="day-panel__stub">
+          <span class="day-panel__num">03</span>
+          <span class="day-panel__weekday">SEX</span>
+        </div>
+        <div class="day-panel__main">
+          <h3 class="day-panel__title">Rock in Rio 🎸</h3>
+          <ul class="day-panel__list">
+            <li>Mequi perto da Praça General Osório</li>
+            <li>Pegar o Primeira Classe rumo à Cidade do Rock</li>
+            <li>Editar: horário de saída, horário do show</li>
+          </ul>
+          <div class="day-panel__barcode"></div>
+        </div>
       </div>
 
       <div class="day-panel" id="dia4" role="tabpanel" hidden>
-        <h3 class="day-panel__title">Dia 4 — Dia livre póp RIR</h3>
-        <ul class="day-panel__list">
-          <li>Café da manhã</li>
-          <li>Praia Ipanema</li>
-        </ul>
+        <div class="day-panel__stub">
+          <span class="day-panel__num">04</span>
+          <span class="day-panel__weekday">SÁB</span>
+        </div>
+        <div class="day-panel__main">
+          <h3 class="day-panel__title">Dia livre pós RIR</h3>
+          <ul class="day-panel__list">
+            <li>Café da manhã</li>
+            <li>Praia Ipanema</li>
+          </ul>
+          <div class="day-panel__barcode"></div>
+        </div>
       </div>
 
       <div class="day-panel" id="dia5" role="tabpanel" hidden>
-        <h3 class="day-panel__title">Dia 5 — Pão de Açúcar</h3>
-        <ul class="day-panel__list">
-          <li>Pão de Açúcar </li>
-          <li>Praia Vermelha e Urca</li>
-        </ul>
+        <div class="day-panel__stub">
+          <span class="day-panel__num">05</span>
+          <span class="day-panel__weekday">DOM</span>
+        </div>
+        <div class="day-panel__main">
+          <h3 class="day-panel__title">Pão de Açúcar</h3>
+          <ul class="day-panel__list">
+            <li>Pão de Açúcar</li>
+            <li>Muitos closes</li>
+          </ul>
+          <div class="day-panel__barcode"></div>
+        </div>
       </div>
 
       <div class="day-panel" id="dia6" role="tabpanel" hidden>
-        <h3 class="day-panel__title">Dia 6 — Praia da Urca</h3>
-        <ul class="day-panel__list">
-          <li>Praia Vermelha</li>
-          <li>Praia da Urca</li>
-          <li>Check in: Ibis Copacabana</li>
-        </ul>
+        <div class="day-panel__stub">
+          <span class="day-panel__num">06</span>
+          <span class="day-panel__weekday">SEG</span>
+        </div>
+        <div class="day-panel__main">
+          <h3 class="day-panel__title">Praia da Urca</h3>
+          <ul class="day-panel__list">
+            <li>Praia Vermelha</li>
+            <li>Praia da Urca</li>
+            <li>Check-in: Ibis Copacabana</li>
+          </ul>
+          <div class="day-panel__barcode"></div>
+        </div>
       </div>
 
       <div class="day-panel" id="dia7" role="tabpanel" hidden>
-        <h3 class="day-panel__title">Dia 7 — Partida</h3>
-        <ul class="day-panel__list">
-          <li>Check-out do Ibis</li>
-          <li>ir para o aeroporto</li>
-        </ul>
+        <div class="day-panel__stub">
+          <span class="day-panel__num">07</span>
+          <span class="day-panel__weekday">TER</span>
+        </div>
+        <div class="day-panel__main">
+          <h3 class="day-panel__title">Partida</h3>
+          <ul class="day-panel__list">
+            <li>Check-out do Ibis</li>
+            <li>Ir para o aeroporto</li>
+          </ul>
+          <div class="day-panel__barcode"></div>
+        </div>
+      </div>
+
+      <!-- Curiosidades sobre o Rock in Rio, de forma geral -->
+      <div class="curiosidades">
+        <h3 class="curiosidades__title">Sobre o Rock in Rio</h3>
+        <p class="curiosidades__text">
+          Criado pelo publicitário Roberto Medina, o Rock in Rio estreou em janeiro de 1985, na antiga Cidade do Rock, em Jacarepaguá. Foram 10 dias de festival com nomes como Queen, AC/DC, Rod Stewart e Ozzy Osbourne — e um público de 1,38 milhão de pessoas, recorde que segue de pé até hoje. Foi ali também que nasceu o Palco Mundo, que desde então já recebeu algumas das maiores lendas da música.
+        </p>
+        <p class="curiosidades__text">
+          A partir de 2004, o festival ganhou o mundo, com edições em Lisboa, Madri e Las Vegas. No Brasil, o Rock in Rio passou a acontecer de forma intercalada — sempre reunindo gerações diferentes de fãs em torno de um line-up que já passou do rock puro pra abraçar pop, eletrônica e, claro, k-pop.
+        </p>
+      </div>
+
+      <!-- Orçamento visual: soma dos ingressos -->
+      <div class="orcamento">
+        <h3 class="orcamento__title">Investimento em ingressos</h3>
+        <div class="orcamento__bar">
+          <div class="orcamento__segment" style="width:41%; background:#3B5BDB;" title="Cristo Redentor — R$107"></div>
+          <div class="orcamento__segment" style="width:59%; background:#D8352A;" title="Pão de Açúcar — R$155"></div>
+        </div>
+        <div class="orcamento__legend">
+          <span><span class="legend__dot" style="background:#3B5BDB"></span>Cristo Redentor — R$107</span>
+          <span><span class="legend__dot" style="background:#D8352A"></span>Pão de Açúcar — R$155</span>
+        </div>
+        <p class="orcamento__total">Total: R$262</p>
       </div>
     </section>
 
@@ -167,12 +291,27 @@
       <div id="packing-list"></div>
     </section>
 
+    <section class="section" id="trilha">
+      <h2 class="section__title">Trilha sonora</h2>
+      <p class="section__lead">A playlist da viagem — troque pelo link da sua playlist no Spotify (clique direito nela &gt; Compartilhar &gt; Incorporar).</p>
+      <iframe style="border-radius:0" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </section>
+
+    <section class="section" id="fotos">
+      <h2 class="section__title">Depois da viagem</h2>
+      <p class="section__lead">Essa seção fica vazia por enquanto — é aqui que as fotos de verdade entram quando a gente voltar. 📸</p>
+    </section>
+
   </main>
 
   <footer class="footer">
     <p>Feito com carinho para essa viagem · rio-plan</p>
   </footer>
 
+  <!-- Three.js: biblioteca de 3D (via CDN, sem precisar de npm/build) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/three-particles.js"></script>
+  <script src="js/three-scene.js"></script>
   <!-- Leaflet: biblioteca do mapa (JS) -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/app.js"></script>
