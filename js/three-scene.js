@@ -36,7 +36,7 @@ scene.add(luzPonto);
 // "O" depende do tamanho da tela, pode ser que você precise ajustar um
 // pouco: x negativo move a esfera pra ESQUERDA, x positivo pra DIREITA.
 // y positivo move pra CIMA, y negativo move pra BAIXO.
-const geometriaEsfera = new THREE.SphereGeometry(0.45, 32, 32);
+const geometriaEsfera = new THREE.SphereGeometry(0.37, 32, 32);
 const materialEsfera = new THREE.MeshPhongMaterial({
   color: 0x7FE7E2,
   transparent: true,
@@ -44,7 +44,7 @@ const materialEsfera = new THREE.MeshPhongMaterial({
   shininess: 100,
 });
 const esferaVidro = new THREE.Mesh(geometriaEsfera, materialEsfera);
-esferaVidro.position.set(-2.9, 1.10, 0.5); // <- ajuste esses 3 números se precisar
+esferaVidro.position.set(-3.2, 1.10, 0.5); // <- ajuste esses 3 números se precisar
 scene.add(esferaVidro);
 
 // Contorno fino por cima, reforçando a silhueta de vidro

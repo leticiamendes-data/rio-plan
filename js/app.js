@@ -4,17 +4,24 @@
 // ===================================================
 // PARTE 2: desenhar o mapa com Leaflet
 // ===================================================
+// Cria o mapa dentro da div id="map", centralizado no Rio de Janeiro,
+// com zoom inicial 12 (quanto maior o número, mais "perto" começa)
 const map = L.map("map").setView([-22.965, -43.21], 12);
 
+// Adiciona as "telhas" visuais do mapa (vem do OpenStreetMap, de graça)
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: "&copy; OpenStreetMap contributors",
 }).addTo(map);
 
+// Busca o arquivo de dados dos lugares
 fetch("data/lugares.json")
   .then((resposta) => resposta.json())
   .then((lugares) => {
     lugares.forEach((lugar) => {
+      // Para cada lugar da lista, cria um marcador na posição lat/lng
       const marcador = L.marker([lugar.lat, lugar.lng]).addTo(map);
+
+      // Texto que aparece ao clicar no marcador
       const textoPreco = lugar.preco ? `R$ ${lugar.preco}` : "";
       marcador.bindPopup(`<strong>${lugar.nome}</strong><br>${textoPreco}`);
     });
@@ -26,30 +33,39 @@ fetch("data/lugares.json")
 // ===================================================
 // PARTE 3: fazer os botões dos dias funcionarem
 // ===================================================
+// Pega todos os botões que tem a classe "day-tab"
 const dayTabs = document.querySelectorAll(".day-tab");
+// Pega todos os painéis de conteúdo que tem a classe "day-panel"
 const dayPanels = document.querySelectorAll(".day-panel");
 
 dayTabs.forEach((tab) => {
+  // Para cada botão, escutamos o evento de clique
   tab.addEventListener("click", () => {
-    const targetDay = tab.dataset.day;
+    const targetDay = tab.dataset.day; // ex: "dia3"
 
+    // Tira o destaque de todos os botões...
     dayTabs.forEach((t) => {
       t.classList.remove("is-active");
       t.setAttribute("aria-selected", "false");
     });
+    // ...e coloca só no botão que foi clicado
     tab.classList.add("is-active");
     tab.setAttribute("aria-selected", "true");
 
+    // Esconde todos os painéis...
     dayPanels.forEach((panel) => {
       panel.hidden = true;
       panel.classList.remove("is-active");
     });
+    // ...e mostra só o painel do dia clicado
     const targetPanel = document.getElementById(targetDay);
     if (targetPanel) {
       targetPanel.hidden = false;
       targetPanel.classList.add("is-active");
     }
 
+    // O Dia 3 é o Rock in Rio — liga o tema especial (preto/vermelho/estrelas)
+    // só enquanto essa aba estiver selecionada
     if (targetDay === "dia3") {
       document.body.classList.add("tema-rir");
     } else {
@@ -61,6 +77,8 @@ dayTabs.forEach((tab) => {
 // ===================================================
 // PARTE 4: checklist da mala, por categoria, com progresso
 // ===================================================
+
+// Nome bonito e cor de cada categoria (a "legenda")
 const CATEGORIAS = {
   roupas:      { nome: "Roupas",              cor: "#3B5BDB" },
   praia:       { nome: "Praia & Extras",      cor: "#1098AD" },
@@ -72,13 +90,16 @@ const CATEGORIAS = {
   rockinrio:   { nome: "Kit Rock in Rio",     cor: "#D8352A" },
 };
 
+// Chave usada pra guardar o progresso no localStorage
 const CHAVE_LOCALSTORAGE = "rio-plan-mala-marcados";
 
+// Pega a lista de itens já marcados (ou uma lista vazia, se for a primeira vez)
 function pegarMarcados() {
   const salvo = localStorage.getItem(CHAVE_LOCALSTORAGE);
   return salvo ? JSON.parse(salvo) : [];
 }
 
+// Salva a lista de itens marcados
 function salvarMarcados(lista) {
   localStorage.setItem(CHAVE_LOCALSTORAGE, JSON.stringify(lista));
 }
@@ -86,6 +107,7 @@ function salvarMarcados(lista) {
 fetch("data/mala.json")
   .then((resposta) => resposta.json())
   .then((itens) => {
+    // Monta a legenda no topo, uma vez por categoria
     const legendaEl = document.getElementById("legend");
     Object.values(CATEGORIAS).forEach((cat) => {
       const span = document.createElement("div");
@@ -94,6 +116,7 @@ fetch("data/mala.json")
       legendaEl.appendChild(span);
     });
 
+    // Agrupa os itens por categoria
     const porCategoria = {};
     itens.forEach((item) => {
       if (!porCategoria[item.categoria]) porCategoria[item.categoria] = [];
@@ -116,6 +139,7 @@ fetch("data/mala.json")
         if (marcados.includes(item.nome)) linha.classList.add("is-checked");
         linha.innerHTML = `<span class="packing-item__box"></span><span class="packing-item__text">${item.nome}</span>`;
 
+        // Ao clicar, alterna marcado/desmarcado e salva
         linha.addEventListener("click", () => {
           linha.classList.toggle("is-checked");
           const listaAtual = pegarMarcados();
@@ -138,6 +162,7 @@ fetch("data/mala.json")
     atualizarProgresso(itens.length);
   });
 
+// Atualiza a barra e o texto "X de Y prontos"
 function atualizarProgresso(total) {
   const marcados = pegarMarcados().length;
   const porcentagem = total > 0 ? (marcados / total) * 100 : 0;
@@ -148,12 +173,15 @@ function atualizarProgresso(total) {
 // ===================================================
 // PARTE 5: contador regressivo até a viagem
 // ===================================================
+
+// Data alvo: 9 de setembro de 2026, meia-noite
 const DATA_VIAGEM = new Date("2026-09-09T00:00:00");
 
 function atualizarContador() {
   const agora = new Date();
-  const diferencaMs = DATA_VIAGEM - agora;
+  const diferencaMs = DATA_VIAGEM - agora; // diferença em milissegundos
 
+  // Se a viagem já passou, mostra tudo zerado e para o relógio
   if (diferencaMs <= 0) {
     document.getElementById("cd-dias").textContent = "00";
     document.getElementById("cd-horas").textContent = "00";
@@ -162,6 +190,7 @@ function atualizarContador() {
     return;
   }
 
+  // Convertendo milissegundos em dias, horas, minutos e segundos
   const umSegundo = 1000;
   const umMinuto = umSegundo * 60;
   const umaHora = umMinuto * 60;
@@ -172,18 +201,22 @@ function atualizarContador() {
   const minutos = Math.floor((diferencaMs % umaHora) / umMinuto);
   const segundos = Math.floor((diferencaMs % umMinuto) / umSegundo);
 
+  // padStart(2, "0") garante que "5" vire "05"
   document.getElementById("cd-dias").textContent = String(dias).padStart(2, "0");
   document.getElementById("cd-horas").textContent = String(horas).padStart(2, "0");
   document.getElementById("cd-min").textContent = String(minutos).padStart(2, "0");
   document.getElementById("cd-seg").textContent = String(segundos).padStart(2, "0");
 }
 
-atualizarContador();
-setInterval(atualizarContador, 1000);
+atualizarContador(); // roda uma vez assim que a página carrega
+setInterval(atualizarContador, 1000); // e depois roda de novo a cada 1 segundo
 
 // ===================================================
 // PARTE 6: fundo interativo — o brilho segue o mouse
 // ===================================================
+// Toda vez que o mouse se move, atualizamos duas variáveis CSS
+// (--mx e --my) com a posição do cursor em porcentagem da tela.
+// O CSS (body::before) usa essas variáveis pra mover o brilho.
 document.addEventListener("mousemove", (evento) => {
   const porcentagemX = (evento.clientX / window.innerWidth) * 100;
   const porcentagemY = (evento.clientY / window.innerHeight) * 100;
@@ -192,16 +225,67 @@ document.addEventListener("mousemove", (evento) => {
 });
 
 // ===================================================
+// PARTE 7: gerar as estrelas do tema do Dia 11
+// ===================================================
+
+const QUANTIDADE_ESTRELAS = 80;
+const containerEstrelas = document.getElementById("stars");
+
+console.log("Container das estrelas:", containerEstrelas);
+console.log("Quantidade de estrelas:", QUANTIDADE_ESTRELAS);
+
+if (containerEstrelas) {
+
+  for (let i = 0; i < QUANTIDADE_ESTRELAS; i++) {
+
+    const estrela = document.createElement("div");
+
+    estrela.className = "star";
+
+    estrela.style.top = Math.random() * 100 + "%";
+    estrela.style.left = Math.random() * 100 + "%";
+
+    // Estrelas com tamanhos diferentes
+    const tamanho = Math.random() * 2 + 1;
+
+    estrela.style.width = tamanho + "px";
+    estrela.style.height = tamanho + "px";
+
+    // Cada estrela pisca em uma velocidade diferente
+    const duracaoTwinkle = Math.random() * 2 + 2;
+
+    // Movimento extremamente suave pelo fundo
+    const duracaoDrift = Math.random() * 6 + 8;
+
+    estrela.style.animationDuration =
+      `${duracaoTwinkle}s, ${duracaoDrift}s`;
+
+    // Faz cada uma começar em um momento diferente
+    estrela.style.animationDelay =
+      `${Math.random() * 3}s, ${Math.random() * 5}s`;
+
+    // Algumas estrelas ficam mais brilhantes
+    if (Math.random() > 0.85) {
+      estrela.style.boxShadow =
+        "0 0 8px rgba(255,255,255,0.95)";
+    }
+
+    containerEstrelas.appendChild(estrela);
+  }
+
+}
+// ===================================================
 // PARTE 8: crachás interativos — clicar troca a carinha
 // ===================================================
 const crachas = document.querySelectorAll(".crew-card__badge-wrap");
 
 crachas.forEach((cracha) => {
+  // A lista de carinhas foi guardada no HTML, separada por vírgula
   const carinhas = cracha.dataset.faces.split(",");
   let indiceAtual = 0;
 
   cracha.addEventListener("click", () => {
-    indiceAtual = (indiceAtual + 1) % carinhas.length;
+    indiceAtual = (indiceAtual + 1) % carinhas.length; // volta pro início ao chegar no fim
     const elementoTexto = cracha.querySelector(".badge-face");
     elementoTexto.textContent = carinhas[indiceAtual];
   });
