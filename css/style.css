@@ -1162,6 +1162,8 @@ body.tema-rir::-webkit-scrollbar-track {
   align-items: center;
   justify-content: center;
 
+  overflow: hidden;
+
   transition:
     opacity 0.45s ease,
     transform 0.45s ease;
@@ -1170,8 +1172,11 @@ body.tema-rir::-webkit-scrollbar-track {
 .album-foto img {
   display: block;
 
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+
+  width: auto;
+  height: auto;
 
   object-fit: contain;
 
@@ -1179,14 +1184,11 @@ body.tema-rir::-webkit-scrollbar-track {
 
   user-select: none;
   -webkit-user-drag: none;
+
+  box-shadow:
+    0 12px 35px rgba(20, 24, 28, 0.12);
 }
 
-/* ANIMAÇÃO AO TROCAR */
-
-.album-foto.trocando {
-  opacity: 0;
-  transform: scale(0.98);
-}
 
 /* BOTÕES */
 
@@ -1218,8 +1220,25 @@ body.tema-rir::-webkit-scrollbar-track {
 
   transition:
     background-color 0.25s ease,
+    color 0.25s ease,
     transform 0.2s ease,
     border-color 0.25s ease;
+    opacity 0.25s ease;
+}
+.album-viewer .album-nav {
+  opacity: 0.55;
+}
+
+.album-viewer:hover .album-nav {
+  opacity: 1;
+}
+
+.album-nav:hover {
+  transform: translateY(-50%) scale(1.06);
+}
+
+.album-nav:active {
+  transform: translateY(-50%) scale(0.92);
 }
 
 .album-nav:hover {
@@ -1250,7 +1269,16 @@ body.tema-rir::-webkit-scrollbar-track {
 
   border-top: 1px solid var(--line);
 }
+.album-info {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
 
+.album-info.trocando {
+  opacity: 0;
+  transform: translateY(4px);
+}
 /* CAMPO DA LEGENDA */
 
 .album-legenda {
@@ -1315,4 +1343,89 @@ body.tema-rir::-webkit-scrollbar-track {
     right: 0.75rem;
   }
 
+}
+.album-hint {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+
+  color: var(--grey);
+
+  opacity: 0.55;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.album-hint.escondida {
+  opacity: 0;
+  transform: translateX(-50%) translateY(4px);
+}
+
+/* MINIATURAS */
+
+.album-thumbs {
+  display: flex;
+  gap: 0.5rem;
+
+  overflow-x: auto;
+
+  padding: 0.75rem 1rem 1rem;
+
+  border-top: 1px solid var(--line);
+
+  scrollbar-width: thin;
+}
+
+.album-thumb {
+  flex: none;
+
+  width: 58px;
+  height: 58px;
+
+  padding: 0;
+
+  border: 1px solid transparent;
+  border-radius: 6px;
+
+  background: transparent;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  opacity: 0.55;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.2s ease,
+    border-color 0.25s ease;
+}
+
+.album-thumb img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+.album-thumb:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.album-thumb.is-active {
+  opacity: 1;
+  border-color: var(--ink);
+  transform: translateY(-2px);
 }

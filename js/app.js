@@ -554,6 +554,10 @@ const botaoAnterior = document.getElementById("pag-anterior");
 const botaoProxima = document.getElementById("pag-proxima");
 const campoLegenda = document.getElementById("album-legenda");
 const contadorAlbum = document.getElementById("album-contador");
+const albumInfo = document.querySelector(".album-info");
+const albumHint = document.getElementById("album-hint");
+const albumMiniaturas =
+  document.getElementById("album-miniaturas");
 
 
 // CARREGAR FOTOS DO JSON
@@ -569,17 +573,19 @@ fetch("data/fotos.json")
 
   })
 
-  .then((dados) => {
+ .then((dados) => {
 
-    fotosAlbum = dados;
+  fotosAlbum = dados;
 
-    legendasPorFoto = new Array(fotosAlbum.length).fill("");
+  legendasPorFoto = new Array(fotosAlbum.length).fill("");
 
-    console.log("Fotos do álbum carregadas:", fotosAlbum);
+  console.log("Fotos do álbum carregadas:", fotosAlbum);
 
-    mostrarFoto();
+  criarMiniaturas();
 
-  })
+  mostrarFoto();
+
+})
 
   .catch((erro) => {
 
@@ -587,6 +593,52 @@ fetch("data/fotos.json")
 
   });
 
+//Miniaturas do álbum
+function criarMiniaturas() {
+
+  if (!albumMiniaturas) {
+    return;
+  }
+
+  albumMiniaturas.innerHTML = "";
+
+  fotosAlbum.forEach((foto, indice) => {
+
+    const miniatura = document.createElement("button");
+
+    miniatura.className = "album-thumb";
+
+    miniatura.type = "button";
+
+    miniatura.setAttribute(
+      "aria-label",
+      `Abrir foto ${indice + 1}`
+    );
+
+    miniatura.innerHTML = `
+      <img
+        src="fotos/${foto.arquivo}"
+        alt=""
+      >
+    `;
+
+    miniatura.addEventListener("click", () => {
+
+      if (indice === indiceAtual) {
+        return;
+      }
+
+      trocarFoto(indice);
+
+    });
+
+    albumMiniaturas.appendChild(miniatura);
+
+  });
+
+}
+console.log("CRIANDO MINIATURAS:", fotosAlbum.length);
+console.log("CONTAINER:", albumMiniaturas);
 
 // MOSTRAR FOTO ATUAL
 
@@ -609,7 +661,22 @@ function mostrarFoto() {
 
   contadorAlbum.textContent =
     `${String(indiceAtual + 1).padStart(2, "0")} / ${String(fotosAlbum.length).padStart(2, "0")}`;
-}
+    if (albumMiniaturas) {
+
+    const miniaturas =
+      albumMiniaturas.querySelectorAll(".album-thumb");
+
+    miniaturas.forEach((miniatura, indice) => {
+
+      miniatura.classList.toggle(
+        "is-active",
+        indice === indiceAtual
+      );
+
+    });
+
+  }
+  }
 
 
 // SALVAR LEGENDA DA FOTO ATUAL
@@ -631,7 +698,15 @@ function trocarFoto(novoIndice) {
 
   salvarLegendaAtual();
 
+  if (albumHint) {
+  albumHint.classList.add("escondida");
+}
+
   paginaAtual.classList.add("trocando");
+
+  if (albumInfo) {
+    albumInfo.classList.add("trocando");
+  }
 
   setTimeout(() => {
 
@@ -640,6 +715,10 @@ function trocarFoto(novoIndice) {
     mostrarFoto();
 
     paginaAtual.classList.remove("trocando");
+
+    if (albumInfo) {
+      albumInfo.classList.remove("trocando");
+    }
 
   }, 250);
 
