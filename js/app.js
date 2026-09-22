@@ -600,7 +600,7 @@ function mostrarFoto() {
 
   paginaAtual.innerHTML = `
     <img
-      src="assets/fotos/${foto.arquivo}"
+      src="fotos/${foto.arquivo}"
       alt="Foto ${indiceAtual + 1} do álbum"
     >
   `;

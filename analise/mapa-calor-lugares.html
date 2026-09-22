@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_871d2c8c948ba92ae4ba72a3418f7698 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_871d2c8c948ba92ae4ba72a3418f7698" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_871d2c8c948ba92ae4ba72a3418f7698 = L.map(
+                "map_871d2c8c948ba92ae4ba72a3418f7698",
+                {
+                    center: [-22.965, -43.21],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_55db2a8003b8396f16ed4862db941e5d = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_55db2a8003b8396f16ed4862db941e5d.addTo(map_871d2c8c948ba92ae4ba72a3418f7698);
+        
+    
+            var heat_map_241f24b0d93c78efe20f3ed525fc909f = L.heatLayer(
+                [[-22.9519, -43.2105, 1], [-22.9486, -43.1568, 1], [-22.9868, -43.2075, 1], [-22.9525, -43.1656, 1], [-22.949, -43.165, 1], [-22.9838, -43.2047, 1], [-22.9711937, -43.3724174, 1]],
+                {
+  "minOpacity": 0.5,
+  "maxZoom": 18,
+  "radius": 25,
+  "blur": 15,
+}
+            );
+        
+    
+            heat_map_241f24b0d93c78efe20f3ed525fc909f.addTo(map_871d2c8c948ba92ae4ba72a3418f7698);
+        
+    
+            var marker_c9b808e5406d41cdb4e61faa3a7cf384 = L.marker(
+                [-22.9519, -43.2105],
+                {
+}
+            ).addTo(map_871d2c8c948ba92ae4ba72a3418f7698);
+        
+    
+            marker_c9b808e5406d41cdb4e61faa3a7cf384.bindTooltip(
+                `<div>
+                     Cristo Redentor
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_bcb654564dea1313828129e8ea9cb652 = L.marker(
+                [-22.9486, -43.1568],
+                {
+}
+            ).addTo(map_871d2c8c948ba92ae4ba72a3418f7698);
+        
+    
+            marker_bcb654564dea1313828129e8ea9cb652.bindTooltip(
+                `<div>
+                     Pão de Açúcar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_c45ec22351c33b0c34e86afae7f98f15 = L.marker(
+                [-22.9868, -43.2075],
+                {
+}
+            ).addTo(map_871d2c8c948ba92ae4ba72a3418f7698);
+        
+    
+            marker_c45ec22351c33b0c34e86afae7f98f15.bindTooltip(
+                `<div>
+                     Praia de Ipanema
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_543dbff7bcfb00e28fab4d854cf5c856 = L.marker(
+                [-22.9525, -43.1656],
+                {
+}
+            ).addTo(map_871d2c8c948ba92ae4ba72a3418f7698);
+        
+    
+            marker_543dbff7bcfb00e28fab4d854cf5c856.bindTooltip(
+                `<div>
+                     Praia Vermelha
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_bfeb1c1aa94b57ceecd33dedcf2acd48 = L.marker(
+                [-22.949, -43.165],
+                {
+}
+            ).addTo(map_871d2c8c948ba92ae4ba72a3418f7698);
+        
+    
+            marker_bfeb1c1aa94b57ceecd33dedcf2acd48.bindTooltip(
+                `<div>
+                     Urca
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_983ada8fffacb6de4a6a890c70d5e5a3 = L.marker(
+                [-22.9838, -43.2047],
+                {
+}
+            ).addTo(map_871d2c8c948ba92ae4ba72a3418f7698);
+        
+    
+            marker_983ada8fffacb6de4a6a890c70d5e5a3.bindTooltip(
+                `<div>
+                     Praça General Osório
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_17ed6cf4a89490d371c3cd3657bbd30b = L.marker(
+                [-22.9711937, -43.3724174],
+                {
+}
+            ).addTo(map_871d2c8c948ba92ae4ba72a3418f7698);
+        
+    
+            marker_17ed6cf4a89490d371c3cd3657bbd30b.bindTooltip(
+                `<div>
+                     Pop-up Skzoo - Shopping Metropolitano Barra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
