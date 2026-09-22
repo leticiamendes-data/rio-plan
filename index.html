@@ -26,8 +26,8 @@
     <canvas id="hero-canvas" class="hero__canvas"></canvas>
     <div class="hero__content">
       <p class="hero__eyebrow">9 — 15 de setembro</p>
-      <h1 class="hero__title">Rio 2026</h1>
-      <p class="hero__subtitle">Uma viagem para entrar na nossa história — praia, Cristo, Pão de Açúcar e o Rock in Rio no meio do caminho.</p>
+      <h1 class="hero__title" id="titulo-animado">Rio 2026</h1>
+      <p class="hero__subtitle">Uma viagem para entrar na nossa história — praia, Pão de Açúcar e o Rock in Rio no meio do caminho.</p>
 
       <div class="countdown" id="countdown">
         <div class="countdown__unit">
@@ -133,138 +133,365 @@
 
     <!-- ===================================================== -->
     <!-- ROTEIRO POR DIA — cada painel agora é um "boarding pass" -->
-    <!-- ===================================================== -->
-    <section class="section" id="roteiro">
-      <h2 class="section__title">O roteiro, dia a dia</h2>
-      <p class="section__lead">Clique num dia pra ver o que está planejado.</p>
 
-      <div class="day-tabs" role="tablist" aria-label="Dias da viagem">
-        <button class="day-tab is-active" data-day="dia1" role="tab" aria-selected="true">Quarta 9/09</button>
-        <button class="day-tab" data-day="dia2" role="tab" aria-selected="false">Quinta 10/09</button>
-        <button class="day-tab" data-day="dia3" role="tab" aria-selected="false">Sexta 11/09</button>
-        <button class="day-tab" data-day="dia4" role="tab" aria-selected="false">Sábado 12/09</button>
-        <button class="day-tab" data-day="dia5" role="tab" aria-selected="false">Domingo 13/09</button>
-        <button class="day-tab" data-day="dia6" role="tab" aria-selected="false">Segunda 14/09</button>
-        <button class="day-tab" data-day="dia7" role="tab" aria-selected="false">Terça 15/09</button>
+<!-- ===================================================== -->
+
+<section class="section" id="roteiro">
+
+  <h2 class="section__title">O roteiro, dia a dia</h2>
+
+  <p class="section__lead">Clique num dia pra ver o que está planejado.</p>
+
+  <div class="day-tabs" role="tablist" aria-label="Dias da viagem">
+
+    <button class="day-tab is-active" data-day="dia1" role="tab" aria-selected="true">Quarta 9/09</button>
+
+    <button class="day-tab" data-day="dia2" role="tab" aria-selected="false">Quinta 10/09</button>
+
+    <button class="day-tab" data-day="dia3" role="tab" aria-selected="false">Sexta 11/09</button>
+
+    <button class="day-tab" data-day="dia4" role="tab" aria-selected="false">Sábado 12/09</button>
+
+    <button class="day-tab" data-day="dia5" role="tab" aria-selected="false">Domingo 13/09</button>
+
+    <button class="day-tab" data-day="dia6" role="tab" aria-selected="false">Segunda 14/09</button>
+
+    <button class="day-tab" data-day="dia7" role="tab" aria-selected="false">Terça 15/09</button>
+
+  </div>
+
+
+  <!-- ==================== DIA 1 ==================== -->
+
+  <div class="day-panel is-active" id="dia1" role="tabpanel">
+
+    <div class="day-panel__stub">
+
+      <span class="day-panel__num">01</span>
+
+      <span class="day-panel__weekday">QUA</span>
+
+    </div>
+
+    <div class="day-panel__main">
+
+      <svg class="day-panel__icon" viewBox="0 0 32 32">
+        <rect x="8" y="12" width="16" height="14" rx="2"/>
+        <path d="M13 12v-2a3 3 0 0 1 6 0v2"/>
+        <path d="M8 18h16"/>
+      </svg>
+
+      <h3 class="day-panel__title">Chegada</h3>
+
+      <div class="clima-card" aria-label="Clima do dia">
+
+        <span class="clima-card__titulo">Clima do dia</span>
+
+        <span class="clima-card__info"></span>
+
       </div>
 
-      <div class="day-panel is-active" id="dia1" role="tabpanel">
-        <div class="day-panel__stub">
-          <span class="day-panel__num">01</span>
-          <span class="day-panel__weekday">QUA</span>
-        </div>
-        <div class="day-panel__main">
-          <svg class="day-panel__icon" viewBox="0 0 32 32"><rect x="8" y="12" width="16" height="14" rx="2"/><path d="M13 12v-2a3 3 0 0 1 6 0v2"/><path d="M8 18h16"/></svg>
-          <h3 class="day-panel__title">Chegada</h3>
-          <ul class="day-panel__list">
-            <li>Guardar as malas no Ibis</li>
-            <li>Pop-up Skzoo · Barra da Tijuca</li>
-            <li>Check-in: Ibis Hotel</li>
-            <li>Andar pela Orla</li>
-          </ul>
-          <div class="day-panel__barcode"></div>
-        </div>
+      <ul class="day-panel__list">
+
+        <li>Check-in: Ibis Hotel</li>
+
+        <li>Cochilo</li>
+
+        <li>Andar pela Orla</li>
+
+        <li>Dumaré (o melhor do Rio)</li>
+        
+        <li>Ir na praia de Copacabana á noite</li>
+
+      </ul>
+
+      <div class="day-panel__barcode"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==================== DIA 2 ==================== -->
+
+  <div class="day-panel" id="dia2" role="tabpanel" hidden>
+
+    <div class="day-panel__stub">
+
+      <span class="day-panel__num">02</span>
+
+      <span class="day-panel__weekday">QUI</span>
+
+    </div>
+
+    <div class="day-panel__main">
+
+      <svg class="day-panel__icon" viewBox="0 0 32 32">
+        <circle cx="16" cy="16" r="6"/>
+        <path d="M16 4v3M16 25v3M4 16h3M25 16h3M7.5 7.5l2 2M22.5 22.5l2 2M7.5 24.5l2-2M22.5 9.5l2-2"/>
+      </svg>
+
+      <h3 class="day-panel__title">Trocando de hospedagem</h3>
+
+      <div class="clima-card" aria-label="Clima do dia">
+
+        <span class="clima-card__titulo">Clima do dia</span>
+
+        <span class="clima-card__info"></span>
+
       </div>
 
-      <div class="day-panel" id="dia2" role="tabpanel" hidden>
-        <div class="day-panel__stub">
-          <span class="day-panel__num">02</span>
-          <span class="day-panel__weekday">QUI</span>
-        </div>
-        <div class="day-panel__main">
-          <svg class="day-panel__icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="6"/><path d="M16 4v3M16 25v3M4 16h3M25 16h3M7.5 7.5l2 2M22.5 22.5l2 2M7.5 24.5l2-2M22.5 9.5l2-2"/></svg>
-          <h3 class="day-panel__title">Trocando de hospedagem</h3>
-          <ul class="day-panel__list">
-            <li>Check-out do Ibis</li>
-            <li>Passeio ao Cristo Redentor</li>
-            <li>Check-in no Airbnb</li>
-          </ul>
-          <div class="day-panel__barcode"></div>
-        </div>
+      <ul class="day-panel__list">
+
+        <li>Check-out do Ibis</li>
+        <li>Café da manhã na padaria</li>
+        <li>Check-in no Airbnb</li>
+        <li>Posto 8: Tour Bus</li>
+        <li>Pão de açúcar</li>
+        <li>Almoço no Embaixada Carioca com os macaquinhos</li>
+        <li>Quase sair voando do Pão de Açúcar</li>
+        <li>Tour bus: o Dilúvio</li>
+        <li>Janta pizza no Airbnb</li>
+
+      </ul>
+
+      <div class="day-panel__barcode"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==================== DIA 3 ==================== -->
+
+  <div class="day-panel" id="dia3" role="tabpanel" hidden>
+
+    <div class="day-panel__stub">
+
+      <span class="day-panel__num">03</span>
+
+      <span class="day-panel__weekday">SEX</span>
+
+    </div>
+
+    <div class="day-panel__main">
+
+      <svg class="day-panel__icon" viewBox="0 0 32 32">
+        <path d="M16 4l2.5 8H27l-6.8 5 2.6 8-6.8-5-6.8 5 2.6-8L5 12h8.5z"/>
+      </svg>
+
+      <h3 class="day-panel__title">Rock in Rio 🎸</h3>
+
+      <div class="clima-card" aria-label="Clima do dia">
+
+        <span class="clima-card__titulo">Clima do dia</span>
+
+        <span class="clima-card__info"></span>
+
       </div>
 
-      <div class="day-panel" id="dia3" role="tabpanel" hidden>
-        <div class="day-panel__stub">
-          <span class="day-panel__num">03</span>
-          <span class="day-panel__weekday">SEX</span>
-        </div>
-        <div class="day-panel__main">
-          <svg class="day-panel__icon" viewBox="0 0 32 32"><path d="M16 4l2.5 8H27l-6.8 5 2.6 8-6.8-5-6.8 5 2.6-8L5 12h8.5z"/></svg>
-          <h3 class="day-panel__title">Rock in Rio 🎸</h3>
-          <ul class="day-panel__list">
-            <li>Mequi perto da Praça General Osório</li>
-            <li>Pegar o Primeira Classe rumo à Cidade do Rock</li>
-            <li>Editar: horário de saída, horário do show</li>
-          </ul>
-          <div class="day-panel__barcode"></div>
-        </div>
+      <ul class="day-panel__list">
+
+        <li>Café da manhã</li>
+        <li>Pegar o Primeira Classe rumo à Cidade do Rock as 14h</li>
+        <li>Come as comida boa de lá</li>
+        <li>NEXZ cantou Saucin um milhão de vezes e amamos todas</li>
+        <li>Hwasa diva perfeita fez tudo cantando Mamamoo </li>
+        <li>Ser arrebadas no Alok</li>
+        <li>STRAYYY KIDDDDS</li>
+        <li>Hall of Fame</li>
+        <li>Menção Honrosa ao Jão cantando as 2h da manhã enquanto tentavámos ir embora</li>
+
+      </ul>
+
+      <div class="day-panel__barcode"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==================== DIA 4 ==================== -->
+
+  <div class="day-panel" id="dia4" role="tabpanel" hidden>
+
+    <div class="day-panel__stub">
+
+      <span class="day-panel__num">04</span>
+
+      <span class="day-panel__weekday">SÁB</span>
+
+    </div>
+
+    <div class="day-panel__main">
+
+      <svg class="day-panel__icon" viewBox="0 0 32 32">
+        <path d="M4 14c2.5-2 5.5-2 8 0s5.5 2 8 0 5.5-2 8 0"/>
+        <path d="M4 20c2.5-2 5.5-2 8 0s5.5 2 8 0 5.5-2 8 0"/>
+      </svg>
+
+      <h3 class="day-panel__title">Dia livre pós RIR</h3>
+
+      <div class="clima-card" aria-label="Clima do dia">
+
+        <span class="clima-card__titulo">Clima do dia</span>
+
+        <span class="clima-card__info"></span>
+
       </div>
 
-      <div class="day-panel" id="dia4" role="tabpanel" hidden>
-        <div class="day-panel__stub">
-          <span class="day-panel__num">04</span>
-          <span class="day-panel__weekday">SÁB</span>
-        </div>
-        <div class="day-panel__main">
-          <svg class="day-panel__icon" viewBox="0 0 32 32"><path d="M4 14c2.5-2 5.5-2 8 0s5.5 2 8 0 5.5-2 8 0"/><path d="M4 20c2.5-2 5.5-2 8 0s5.5 2 8 0 5.5-2 8 0"/></svg>
-          <h3 class="day-panel__title">Dia livre pós RIR</h3>
-          <ul class="day-panel__list">
-            <li>Café da manhã</li>
-            <li>Praia Ipanema</li>
-          </ul>
-          <div class="day-panel__barcode"></div>
-        </div>
+      <ul class="day-panel__list">
+        <li>Pop up Skzoo</li>
+        <li>Café da manhã</li>
+        <li>Cochilo</li>
+        <li>Praia de Ipanema</li>
+
+      </ul>
+
+      <div class="day-panel__barcode"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==================== DIA 5 ==================== -->
+
+  <div class="day-panel" id="dia5" role="tabpanel" hidden>
+
+    <div class="day-panel__stub">
+
+      <span class="day-panel__num">05</span>
+
+      <span class="day-panel__weekday">DOM</span>
+
+    </div>
+
+    <div class="day-panel__main">
+
+      <svg class="day-panel__icon" viewBox="0 0 32 32">
+        <path d="M4 8 L16 24 L28 8 Z"/>
+        <circle cx="16" cy="14" r="2"/>
+        <path d="M16 16v8"/>
+      </svg>
+
+      <h3 class="day-panel__title">Pão de Açúcar</h3>
+
+      <div class="clima-card" aria-label="Clima do dia">
+
+        <span class="clima-card__titulo">Clima do dia</span>
+
+        <span class="clima-card__info"></span>
+
       </div>
 
-      <div class="day-panel" id="dia5" role="tabpanel" hidden>
-        <div class="day-panel__stub">
-          <span class="day-panel__num">05</span>
-          <span class="day-panel__weekday">DOM</span>
-        </div>
-        <div class="day-panel__main">
-          <svg class="day-panel__icon" viewBox="0 0 32 32"><path d="M4 8 L16 24 L28 8 Z"/><circle cx="16" cy="14" r="2"/><path d="M16 16v8"/></svg>
-          <h3 class="day-panel__title">Pão de Açúcar</h3>
-          <ul class="day-panel__list">
-            <li>Pão de Açúcar</li>
-            <li>Muitos closes</li>
-          </ul>
-          <div class="day-panel__barcode"></div>
-        </div>
+      <ul class="day-panel__list">
+
+        <li>Café da manhã</li>
+
+        <li>Muitos closes</li>
+        <li>Chuva e depressão</li>
+        <li>Boteco Belmont - odiamos</li>
+        <li>Fofoca</li>
+
+      </ul>
+
+      <div class="day-panel__barcode"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==================== DIA 6 ==================== -->
+
+  <div class="day-panel" id="dia6" role="tabpanel" hidden>
+
+    <div class="day-panel__stub">
+
+      <span class="day-panel__num">06</span>
+
+      <span class="day-panel__weekday">SEG</span>
+
+    </div>
+
+    <div class="day-panel__main">
+
+      <svg class="day-panel__icon" viewBox="0 0 32 32">
+        <path d="M4 14c2.5-2 5.5-2 8 0s5.5-2 8 0 5.5-2 8 0"/>
+        <path d="M4 20c2.5-2 5.5-2 8 0s5.5-2 8 0 5.5-2 8 0"/>
+      </svg>
+
+      <h3 class="day-panel__title">Praia da Urca</h3>
+
+      <div class="clima-card" aria-label="Clima do dia">
+
+        <span class="clima-card__titulo">Clima do dia</span>
+
+        <span class="clima-card__info"></span>
+
       </div>
 
-      <div class="day-panel" id="dia6" role="tabpanel" hidden>
-        <div class="day-panel__stub">
-          <span class="day-panel__num">06</span>
-          <span class="day-panel__weekday">SEG</span>
-        </div>
-        <div class="day-panel__main">
-          <svg class="day-panel__icon" viewBox="0 0 32 32"><path d="M4 14c2.5-2 5.5-2 8 0s5.5 2 8 0 5.5-2 8 0"/><path d="M4 20c2.5-2 5.5-2 8 0s5.5 2 8 0 5.5-2 8 0"/></svg>
-          <h3 class="day-panel__title">Praia da Urca</h3>
-          <ul class="day-panel__list">
-            <li>Praia Vermelha</li>
-            <li>Praia da Urca</li>
-            <li>Check-in: Ibis Copacabana</li>
-          </ul>
-          <div class="day-panel__barcode"></div>
-        </div>
+      <ul class="day-panel__list">
+
+        <li>Praia Vermelha</li>
+
+        <li>Praia da Urca</li>
+
+        <li>Check-in: Ibis Copacabana</li>
+
+      </ul>
+
+      <div class="day-panel__barcode"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==================== DIA 7 ==================== -->
+
+  <div class="day-panel" id="dia7" role="tabpanel" hidden>
+
+    <div class="day-panel__stub">
+
+      <span class="day-panel__num">07</span>
+
+      <span class="day-panel__weekday">TER</span>
+
+    </div>
+
+    <div class="day-panel__main">
+
+      <svg class="day-panel__icon" viewBox="0 0 32 32">
+        <path d="M4 18l24-9-9 24-3-10-10-3z"/>
+      </svg>
+
+      <h3 class="day-panel__title">Partida</h3>
+
+      <div class="clima-card" aria-label="Clima do dia">
+
+        <span class="clima-card__titulo">Clima do dia</span>
+
+        <span class="clima-card__info"></span>
+
       </div>
 
-      <div class="day-panel" id="dia7" role="tabpanel" hidden>
-        <div class="day-panel__stub">
-          <span class="day-panel__num">07</span>
-          <span class="day-panel__weekday">TER</span>
-        </div>
-        <div class="day-panel__main">
-          <svg class="day-panel__icon" viewBox="0 0 32 32"><path d="M4 18l24-9-9 24-3-10-10-3z"/></svg>
-          <h3 class="day-panel__title">Partida</h3>
-          <ul class="day-panel__list">
-            <li>Check-out do Ibis</li>
-            <li>Ir para o aeroporto</li>
-          </ul>
-          <div class="day-panel__barcode"></div>
-        </div>
-      </div>
+      <ul class="day-panel__list">
 
+        <li>Check-out do Ibis</li>
+
+        <li>Ir para o aeroporto</li>
+
+      </ul>
+
+      <div class="day-panel__barcode"></div>
+
+    </div>
+
+  </div>
+
+</section>
       <!-- Curiosidades sobre o Rock in Rio, de forma geral -->
       <div class="curiosidades">
         <h3 class="curiosidades__title">Sobre o Rock in Rio</h3>
@@ -311,12 +538,80 @@
     <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWWqjEVD8TBr9?utm_source=generator&si=ae402cece7f04d39" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>  
     </section>
 
-    <section class="section" id="fotos">
-      <h2 class="section__title">Depois da viagem</h2>
-      <p class="section__lead">Essa seção fica vazia por enquanto — é aqui que as fotos de verdade entram quando a gente voltar. 📸</p>
-    </section>
-
   </main>
+
+<!-- ===================================================
+     ÁLBUM DE FOTOS
+     =================================================== -->
+
+<section class="section" id="album">
+
+  <div class="album-window">
+
+    <!-- Barra superior estilo Mac -->
+    <div class="album-window__top">
+
+      <div class="album-window__dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <span class="album-window__title">
+        Álbum · Rio
+      </span>
+
+    </div>
+
+    <!-- Área da foto -->
+    <div class="album-viewer">
+
+      <button
+        class="album-nav album-nav--prev"
+        id="pag-anterior"
+        aria-label="Foto anterior"
+      >
+        ←
+      </button>
+
+      <div
+        class="album-foto"
+        id="pagina-atual"
+      ></div>
+
+      <button
+        class="album-nav album-nav--next"
+        id="pag-proxima"
+        aria-label="Próxima foto"
+      >
+        →
+      </button>
+
+    </div>
+
+    <!-- Legenda + contador -->
+    <div class="album-info">
+
+      <input
+        type="text"
+        class="album-legenda"
+        id="album-legenda"
+        placeholder="✎ Escreva uma legenda..."
+        aria-label="Legenda da foto"
+      />
+
+      <span
+        class="album-contador"
+        id="album-contador"
+      >
+        01 / 01
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
 
  <footer class="footer">
   <p>Feito com carinho para essa viagem · rio-plan · <a href="analise.html" style="color:var(--ink)">ver a viagem em dados →</a></p>
