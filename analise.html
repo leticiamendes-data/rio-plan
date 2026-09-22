@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Análise da viagem · Rio 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .analise-header { max-width: 640px; margin: 0 auto; padding: 4rem 1.5rem 2rem; }
+    .voltar { font-size: 0.8rem; color: var(--grey); text-decoration: none; }
+    .analise-section { max-width: 640px; margin: 0 auto; padding: 2.5rem 1.5rem; border-top: 1px solid var(--line); }
+    .analise-section img { width: 100%; border: 1px solid var(--line); display: block; }
+    .analise-section iframe { width: 100%; height: 420px; border: 1px solid var(--line); }
+    .analise-caption { font-size: 0.9rem; color: var(--grey); margin-top: 0.75rem; }
+    .cta-notebook {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.7rem 1.4rem;
+      background: var(--ink);
+      color: var(--bg);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <header class="analise-header">
+    <a class="voltar" href="index.html">&larr; Voltar pro roteiro</a>
+    <h1 class="hero__title" style="font-size:2.8rem; margin-top:1rem;">A viagem, em dados</h1>
+    <p class="hero__subtitle">Depois de voltar, transformei a viagem em uma pequena análise de dados — gastos, passos e clima, com Python e pandas.</p>
+    <a class="cta-notebook" href="https://github.com/leticiamendes-data/rio-plan/blob/main/analise/analise-viagem-rio.ipynb" target="_blank">Ver o notebook completo no GitHub →</a>
+  </header>
+
+  <section class="analise-section">
+    <h2 class="section__title">Gastos por dia</h2>
+    <img src="analise/imagens/grafico-gastos-por-dia.png" alt="Gráfico de gastos por dia da viagem" />
+    <p class="analise-caption">O gasto teve dois picos: o dia do Rock in Rio (compras + comida do evento) e o dia 14 (hospedagem + mercado).</p>
+  </section>
+
+  <section class="analise-section">
+    <h2 class="section__title">Gastos por categoria</h2>
+    <img src="analise/imagens/grafico-gastos-categoria.png" alt="Gráfico de gastos por categoria" />
+    <p class="analise-caption">Comida foi a maior categoria de gasto, seguida de compras.</p>
+  </section>
+
+  <section class="analise-section">
+    <h2 class="section__title">Passos por pessoa</h2>
+    <img src="analise/imagens/grafico-passos-por-pessoa.png" alt="Gráfico de passos por pessoa" />
+    <p class="analise-caption">As 4 pessoas seguem quase o mesmo padrão de passos ao longo da semana — sugere que o roteiro em grupo influenciou mais o nível de atividade do que o perfil individual.</p>
+  </section>
+
+  <section class="analise-section">
+    <h2 class="section__title">Clima x passos</h2>
+    <img src="analise/imagens/grafico-clima-passos.png" alt="Gráfico de correlação entre chuva e passos" />
+    <p class="analise-caption">Correlação fraca (r ≈ -0.17) entre chuva e passos médios — com apenas 7 dias, o resultado é ilustrativo, não estatisticamente conclusivo.</p>
+  </section>
+
+  <section class="analise-section">
+    <h2 class="section__title">Onde estivemos</h2>
+    <iframe src="analise/mapa-calor-lugares.html"></iframe>
+    <p class="analise-caption">Mapa de calor dos lugares do roteiro.</p>
+  </section>
+
+  <section class="analise-section">
+    <h2 class="section__title">Visão geral</h2>
+    <img src="analise/imagens/grafico-visao-geral-normalizada.png" alt="Gráfico normalizado de gasto, passos e temperatura" />
+    <p class="analise-caption">Gasto, passos e temperatura, todos numa escala de 0 a 1, sobrepostos — dá pra ver visualmente se andaram juntos em algum ponto da viagem.</p>
+  </section>
+
+  <footer class="footer">
+    <p>Análise feita em Python (pandas, seaborn, folium) · <a href="index.html">rio-plan</a></p>
+  </footer>
+</body>
+</html>
