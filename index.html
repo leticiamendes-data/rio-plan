@@ -131,6 +131,35 @@
       <div id="map"></div>
     </section>
 
+    <section class="section" id="mala">
+      <h2 class="section__title">Checklist da mala</h2>
+      <p class="section__lead">Tudo organizado por categoria e com progresso salvo no navegador.</p>
+
+      <div class="progress" aria-label="Progresso da mala">
+        <div class="progress__bar" aria-hidden="true">
+          <div class="progress__fill" id="progress-fill"></div>
+        </div>
+        <p class="progress__label" id="progress-label">0 de 0 prontos</p>
+      </div>
+
+      <div class="legend" id="legend" aria-label="Legenda da mala"></div>
+
+      <button class="mala-toggle" id="mala-toggle" type="button" aria-expanded="false" aria-controls="mala-conteudo">
+        <span class="mala-toggle__left">
+          <span class="mala-toggle__icon" aria-hidden="true">🎒</span>
+          <span>
+            <strong>Minha mala</strong>
+            <small id="mala-resumo">0 de 0 prontos</small>
+          </span>
+        </span>
+        <span class="mala-toggle__arrow" aria-hidden="true">▾</span>
+      </button>
+
+      <div class="mala-conteudo" id="mala-conteudo" hidden>
+        <div id="packing-list"></div>
+      </div>
+    </section>
+
     <!-- ===================================================== -->
     <!-- ROTEIRO POR DIA — cada painel agora é um "boarding pass" -->
 

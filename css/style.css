@@ -926,11 +926,12 @@ body.tema-rir .day-panel::before {
 }
 
 .mala-toggle small {
-  display: bl
+  display: block;
   margin-top: 0.15rem;
   font-size: 0.75rem;
   color: var(--grey);
 }
+
 .mala-toggle__arrow {
   font-size: 1.2rem;
   transition: transform 0.3s ease;
