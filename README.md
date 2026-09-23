@@ -1,4 +1,5 @@
 <img width="629" height="630" alt="Captura de Tela 2026-09-22 às 22 58 55" src="https://github.com/user-attachments/assets/8b0f281e-5892-4dc1-8c2b-6d72117fcdbe" />
+
 # rio-plan
 
 Site com o roteiro da viagem ao Rio de Janeiro (9 a 15 de setembro de 2026), construído como projeto de portfólio de ciência de dados / engenharia — front-end, APIs, e uma análise de dados reais da viagem em Python.
