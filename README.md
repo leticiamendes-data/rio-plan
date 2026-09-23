@@ -1,4 +1,3 @@
-<img width="629" height="630" alt="Captura de Tela 2026-09-22 às 22 58 55" src="https://github.com/user-attachments/assets/8b0f281e-5892-4dc1-8c2b-6d72117fcdbe" />
 
 # rio-plan
 
