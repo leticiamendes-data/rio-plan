@@ -398,9 +398,33 @@ function atualizarProgresso(total) {
   const marcados = pegarMarcados().length;
   const porcentagem = total > 0 ? (marcados / total) * 100 : 0;
   document.getElementById("progress-fill").style.width = porcentagem + "%";
-  document.getElementById("progress-label").textContent = `${marcados} de ${total} prontos`;
-}
+  document.getElementById("progress-label").textContent =
+  `${marcados} de ${total} prontos`;
 
+const resumoMala = document.getElementById("mala-resumo");
+
+if (resumoMala) {
+  resumoMala.textContent = `${marcados} de ${total} prontos`;
+}
+}
+// ===================================================
+// PAINEL COMPACTO DA MALA
+// ===================================================
+
+const malaToggle = document.getElementById("mala-toggle");
+const malaConteudo = document.getElementById("mala-conteudo");
+const malaResumo = document.getElementById("mala-resumo");
+
+if (malaToggle && malaConteudo) {
+  malaToggle.addEventListener("click", () => {
+    const aberto = malaToggle.getAttribute("aria-expanded") === "true";
+
+    malaToggle.setAttribute("aria-expanded", String(!aberto));
+    malaToggle.classList.toggle("is-open", !aberto);
+
+    malaConteudo.hidden = aberto;
+  });
+}
 // ===================================================
 // PARTE 4: contador regressivo até a viagem
 // ===================================================

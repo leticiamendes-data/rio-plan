@@ -772,7 +772,7 @@ body.tema-rir .day-panel::before {
 
 /* ===== Curiosidades ===== */
 .curiosidades {
-  margin-top: 2rem;
+  margin-top: 1.25rem;
 }
 
 .curiosidades__title {
@@ -786,12 +786,13 @@ body.tema-rir .day-panel::before {
 .curiosidades__text {
   font-size: 0.9rem;
   color: var(--grey);
+  line-height: 1.5;
   margin: 0 0 0.75rem;
 }
 
 /* ===== Orçamento ===== */
 .orcamento {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .orcamento__title {
@@ -870,6 +871,80 @@ body.tema-rir .day-panel::before {
   font-size: 0.8rem;
   color: var(--grey);
   margin: 0.4rem 0 0;
+}
+/* ===== Checklist da mala — painel compacto ===== */
+
+.mala-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1rem 1.1rem;
+
+  border: 1px solid var(--line);
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.28);
+
+  color: var(--ink);
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.mala-toggle:hover {
+  background: rgba(255, 255, 255, 0.45);
+  border-color: rgba(20, 24, 28, 0.18);
+}
+
+.mala-toggle:active {
+  transform: scale(0.99);
+}
+
+.mala-toggle__left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mala-toggle__icon {
+  font-size: 1.35rem;
+}
+
+.mala-toggle strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.mala-toggle small {
+  display: bl
+  margin-top: 0.15rem;
+  font-size: 0.75rem;
+  color: var(--grey);
+}
+.mala-toggle__arrow {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+.mala-toggle.is-open .mala-toggle__arrow {
+  transform: rotate(180deg);
+}
+
+/* Conteúdo que abre */
+.mala-conteudo {
+  margin-top: 1rem;
+}
+.mala-conteudo[hidden] {
+  display: none;
 }
 
 /* ===== Packing list (agrupada por categoria) ===== */
@@ -1428,4 +1503,22 @@ body.tema-rir::-webkit-scrollbar-track {
   opacity: 1;
   border-color: var(--ink);
   transform: translateY(-2px);
+}
+/* ===================================================
+   HOVER DOS CARDS DO ROTEIRO
+   =================================================== */
+
+.day-panel {
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+.day-panel:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.10);
 }
